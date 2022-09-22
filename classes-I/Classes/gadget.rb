@@ -13,8 +13,16 @@ class Gadget
     @username
   end
 
+  def username=(new_username)
+    @username = new_username
+  end
+
   def production_number
     @production_number
+  end
+
+  def password=(new_password)
+    @password = new_password
   end
 
 
@@ -26,5 +34,8 @@ phone = Gadget.new
 # encapsulation means data should be preented from being accessed from outside the definition
 
 p phone.username
+phone.username=('rubyman')
+p phone.username
 p phone.production_number
-# p phone.password
+phone.password=('bestpasswordever')
+# OR phone.password = 'bestpasswordever'
