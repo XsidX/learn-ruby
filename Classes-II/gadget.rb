@@ -2,7 +2,7 @@ class Gadget
 
   attr_accessor :username
   attr_reader :production_number
-  attr_writer :password
+  # attr_writer :password
 
   def initialize(username, password)
     @username = "User #{rand(1..100)}"
@@ -16,8 +16,14 @@ class Gadget
      has the ID #{self.object_id}"
   end
 
+  def password=(new_password)
+    if validate_password(new_password) 
+      @password = new_password
+    end
+  end
+
   private
-  
+
   def gen_production_no
     start_digits = rand(10000..99999)
     end_digits = rand(10000..99999)
@@ -27,8 +33,18 @@ class Gadget
     "#{start_digits}-#{middle_digits}-#{end_digits}"
   end
 
+  def validate_password(new_password)
+    new_password.is_a?(String) && new_password.length >= 6 && new_password =~ /\d/
+  end
+
 end
 
-phone = Gadget.new("user", "password")
-p phone.production_number
-p phone.gen_production_no
+phone = Gadget.new("rubyfan102", "programming123")
+puts phone.password
+
+phone.password = "123"
+puts phone.password
+
+phone.password = "mynewpassword123"
+puts phone.password
+
