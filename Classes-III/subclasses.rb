@@ -20,6 +20,14 @@ end
 class Worker < Employee
 end
 
+p Manager.ancestors
+p Manager.superclass
+p Worker.ancestors
+p Worker.superclass
+
+puts Manager < Employee
+# true
+
 bob = Manager.new("Bob", 42)
 dan = Worker.new("Daniel", 25)
 
