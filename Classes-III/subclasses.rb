@@ -15,29 +15,22 @@ class Employee
 end
 
 class Manager < Employee
+  def yell
+    puts "Who's the boss? I'm the boss!"
+  end
 end
 
 class Worker < Employee
+  def clock_in(time)
+    puts "Starting my shift at #{time}"
+  end
+
+  def yell
+    puts "I'm working! I'm working!"
+  end
 end
 
-p Manager.ancestors
-p Manager.superclass
-p Worker.ancestors
-p Worker.superclass
-
-puts Manager < Employee
-# true
-
-bob = Manager.new("Bob", 42)
-dan = Worker.new("Daniel", 25)
-
+bob = Manager.new("Bob", 52)
 p bob.introduce
+p bob.yell
 
-puts bob.is_a?(Manager)
-# true
-puts bob.is_a?(Employee)
-# true
-puts bob.instance_of?(Manager)
-# true
-puts bob.instance_of?(Employee)
-# false
