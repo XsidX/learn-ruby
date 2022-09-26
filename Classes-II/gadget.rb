@@ -1,13 +1,13 @@
 class Gadget
 
   attr_accessor :username
-  attr_reader :production_number
-  # attr_writer :password
+  attr_reader :production_number, :apps
 
   def initialize(username, password)
     @username = "User #{rand(1..100)}"
     @password = "topsecret"
     @production_number = gen_production_no
+    @apps = []
   end
 
   def to_s
@@ -22,7 +22,16 @@ class Gadget
     end
   end
 
+  # using self to call a method within the same class and avoid code duplication
+  def reset(username, password)
+    self.username = username
+    self.password = password
+    self.apps = []
+  end
+
   private
+
+  attr_writer :apps
 
   def gen_production_no
     start_digits = rand(10000..99999)
