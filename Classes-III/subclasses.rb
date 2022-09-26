@@ -18,6 +18,9 @@ class Manager < Employee
   def yell
     puts "Who's the boss? I'm the boss!"
   end
+  def introduce
+    puts "Hi, my name is #{name} and I am a manager. Woohoo!"
+  end
 end
 
 class Worker < Employee
@@ -30,7 +33,11 @@ class Worker < Employee
   end
 end
 
-bob = Manager.new("Bob", 52)
-p bob.introduce
-p bob.yell
+bob = Worker.new("Bob", 52)
+bob.introduce
+bob.yell
+
+
+sally = Manager.new("Sally", 26)
+sally.introduce
 
