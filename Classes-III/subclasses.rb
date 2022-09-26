@@ -32,3 +32,12 @@ bob = Manager.new("Bob", 42)
 dan = Worker.new("Daniel", 25)
 
 p bob.introduce
+
+puts bob.is_a?(Manager)
+# true
+puts bob.is_a?(Employee)
+# true
+puts bob.instance_of?(Manager)
+# true
+puts bob.instance_of?(Employee)
+# false
